@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STARBEAMS, radio astronomy at IIT Kanpur</title>
+<meta name="description" content="STARBEAMS is a radio astronomy research group in the Department of Space, Planetary & Astronomical Sciences & Engineering at IIT Kanpur, led by Prof. Mohit Bhardwaj.">
+<style>
+  html, body { height: 100%; margin: 0; background: #fff; }
+  #site { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  .fallback { font: 16px/1.5 system-ui, sans-serif; padding: 24px; }
+</style>
+</head>
+<body>
+<!--
+  This page stays on the IIT Kanpur server and never needs changing.
+  It shows the STARBEAMS website from GitHub Pages, so every edit pushed to GitHub appears here on its own.
+  Set SITE once, below, to the GitHub Pages address of the repository (keep the slash at the end).
+-->
+<iframe id="site" title="STARBEAMS website" allow="fullscreen" allowfullscreen></iframe>
+<noscript><p class="fallback">This page needs JavaScript. <a href="https://intakhab1.github.io/starbeams/">Open the STARBEAMS website</a>.</p></noscript>
+<script>
+  const SITE = 'https://intakhab1.github.io/starbeams/'; /* the GitHub Pages address of the site */
+
+  const frame = document.getElementById('site');
+  const origin = new URL(SITE).origin;
+  frame.src = SITE + location.hash; /* a link such as …/#publications opens that page */
+
+  const icon = document.createElement('link'); /* the site's own tab icon */
+  icon.rel = 'icon'; icon.type = 'image/png'; icon.href = SITE + 'media/img/logo/favicon-64.png';
+  document.head.append(icon);
+
+  /* the site reports each page it shows; the tab title and the address follow, so a page can be shared */
+  window.addEventListener('message', (e) => {
+    if (e.origin !== origin || !e.data || e.data.type !== 'starbeams:page') return;
+    if (typeof e.data.title === 'string') document.title = e.data.title;
+    if (typeof e.data.hash === 'string' && /^#[\w-]*$/.test(e.data.hash) && e.data.hash !== location.hash) {
+      history.replaceState(null, '', location.pathname + location.search + e.data.hash);
+    }
+  });
+
+  /* a hash typed into the address bar opens that page in the site */
+  window.addEventListener('hashchange', () => { frame.src = SITE + location.hash; });
+</script>
+</body>
+</html>
