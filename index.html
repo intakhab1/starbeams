@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=STIX+Two+Text:wght@400..600&display=swap">
 <style>
 /* Hallmark · shape: Poster hero (home), one page per nav item · genre: editorial · theme: Specimen (deal 3/3, seed university-research-group-radio-e622·967d225d·2026-11-03·r0), restyled by request: STIX Two Text for the display, plain white paper with navy bands, every photograph in its own colour · job: join · draw: b84c9d
- * hero: Poster, the group's own photographs sliding past full-bleed behind the STARBEAMS wordmark and the line at display size, two actions bottom-left over an ink scrim; the slides wait only off-screen and in a background tab, and crossfade instead under reduced motion (a background that keeps moving, with no pause button, both by request) · nav: a slim navy institute bar (IIT Kanpur, SPASE, the symposium, the group's X and LinkedIn) over a white bar with the badge, the name and its full form left and eight page links right under a sliding marker; the white bar tucks away while the page scrolls down and comes back on the way up, both by request · footer: a square navy block, the STARBEAMS and IIT Kanpur lockups at one height on IIT Kanpur's own proportions with two labelled rows of social icons under them, then three labelled columns (the site's pages, IIT Kanpur's, the address with the office and the lab), then the copyright line and a way back to the top · imagery: the user's photographs in natural colour (The Dynamic Radio Sky, the group's success party), the symposium and colloquium posters, the user's logos; the ESB-2 building from the SPASE brochure; IIT Kanpur's campus from the air (a still from its own video), by the user's permission; the central lawn (the Mechanical Engineering site), the P K Kelkar Library at night (the library's site), PARAM Sanganak (the institute's research facilities card) a second view of ESB-2 (the Cognitive Science site), cool-graded under a navy band, SPASE's SWAN antenna station (its radio astronomy laboratory page) and the gate, cyclists and Visitors' Hostel from the institute's visitor page, all at the user's request to draw on IIT Kanpur's own sites; the user's own photograph of the group's talk at the BRICS Astronomy Working Group meeting; the poster for Prof. Pawan Kumar's seminar from the group's invitation to the department; IIT Kanpur's own card for the Buti Foundation Award, from its announcement; the ESB-2 building from the group's Canva placement brochure, cool-graded, behind the lab band; portraits from IIT Kanpur and SPASE; nothing drawn or generated · signature: the group's own days at The Dynamic Radio Sky, in colour, behind the STARBEAMS wordmark, then the ESB-2 building the lab works from
+ * hero: Poster, the group's own photographs sliding past full-bleed behind the STARBEAMS wordmark and the line at display size, two actions bottom-left over an ink scrim; the slides wait only off-screen and in a background tab, and crossfade instead under reduced motion (a background that keeps moving, with no pause button, both by request) · nav: a slim navy institute bar (IIT Kanpur, SPASE, the symposium, the group's X and LinkedIn) over a white bar with the badge, the name and its full form left and eight page links right under a sliding marker; the white bar tucks away while the page scrolls down and comes back on the way up, both by request · footer: a square navy block, the STARBEAMS and IIT Kanpur lockups at one height on IIT Kanpur's own proportions with two labelled rows of social icons under them, then three labelled columns (the site's pages, IIT Kanpur's, the address with the office and the lab), then the copyright line and a way back to the top · imagery: the user's photographs in natural colour (The Dynamic Radio Sky, the group's success party), the symposium and colloquium posters, the user's logos; the ESB-2 building from the SPASE brochure; IIT Kanpur's campus from the air (a still from its own video), by the user's permission; the central lawn (the Mechanical Engineering site), PARAM Sanganak (the institute's research facilities card) a second view of ESB-2 (the Cognitive Science site), cool-graded under a navy band, SPASE's SWAN antenna station (its radio astronomy laboratory page) and the gate, cyclists and Visitors' Hostel from the institute's visitor page, all at the user's request to draw on IIT Kanpur's own sites; the user's own photograph of the group's talk at the BRICS Astronomy Working Group meeting; the poster for Prof. Pawan Kumar's seminar from the group's invitation to the department; IIT Kanpur's own card for the Buti Foundation Award, from its announcement; the ESB-2 building from the group's Canva placement brochure, cool-graded, behind the lab band; portraits from IIT Kanpur and SPASE; nothing drawn or generated · signature: the group's own days at The Dynamic Radio Sky, in colour, behind the STARBEAMS wordmark, then the ESB-2 building the lab works from
  * axes: light/transitional-serif/cool · posture: committed (navy bands, by request for a fuller, livelier page; white marks on navy, rounded corners throughout, both by request) · surface: absolute (plain white paper, by request) · contrast: pass · fold: pass · motion: page changes crossfade through view transitions, the marker slides, the site bar tucks away on the way down, and the recent activities slide past a card at a time, holding still under a pointer or a key and staying a grid under reduced motion · v2.0.0
  * hero-review: not rerun on this revision · finish-review: not rerun on this revision; the user reviewed each page live and every change came from that */
 /* Hallmark · pre-emit critique: P4 H4 E4 S5 R3 V4 · weakest: R, the navy bands, tiles and cards make a busier page than the system's restraint, which the user asked for; each band carries one job */
@@ -56,6 +56,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { overflow-x: clip; }
 html { scrollbar-color: var(--color-rule-2) var(--color-paper); scroll-padding-top: calc(var(--head-h) + var(--space-lg)); }
+[data-page], .opening { scroll-margin-top: calc(var(--util-h) + var(--head-h)); } /* a page, or its opening block, opened by a link (…/#people) starts at the very top */
 body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
 ::selection { background: color-mix(in oklab, var(--color-accent) 20%, transparent); color: var(--color-ink); }
 :focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
@@ -272,25 +273,21 @@ html:not(.js) .page + .page { border-top: var(--rule-hair) solid var(--color-ink
 /* home: IIT Kanpur in four photographs, each opening the institute's own page: the lawn across the top, three below */
 .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-columns); margin: 0; padding: 0; list-style: none; }
 .tile { position: relative; isolation: isolate; display: flex; align-items: flex-end; overflow: hidden; aspect-ratio: 3 / 2; border-radius: var(--radius-card); background: var(--color-navy); color: var(--color-on-photo); }
-.tile--big { grid-column: 1 / -1; aspect-ratio: 11 / 4; }
 .tile img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.tile img[data-media="campusLawn"] { object-position: 75% 50%; } /* keeps the brick tower in the frame */
 .tile img[data-media="researchFacilities"] { object-position: 50% 100%; }
 .tile img[data-media="swanStation"] { object-position: 50% 60%; } /* the machine's own lettering sits above the title */
 .tile::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to top, color-mix(in oklab, var(--color-scrim) 88%, transparent) 0%, color-mix(in oklab, var(--color-scrim) 52%, transparent) 34%, color-mix(in oklab, var(--color-scrim) 0%, transparent) 70%); }
 .tile h3 { padding: var(--space-lg); font-size: var(--text-xl); color: var(--color-on-photo); text-shadow: 0 1px 14px color-mix(in oklab, var(--color-scrim) 60%, transparent); }
-.tile--big h3 { padding: var(--space-xl); font-size: var(--text-section); }
 .tile h3 a { text-decoration: none; }
 .tile h3 a::after { content: ""; position: absolute; inset: 0; }
 .tile:hover h3 a { text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: currentColor; }
 .tile :focus-visible { outline-color: var(--color-on-photo); }
 @media (max-width: 60rem) {
   .tiles { grid-template-columns: minmax(0, 1fr); }
-  .tile, .tile--big { aspect-ratio: 3 / 2; }
-  .tile--big img { object-position: 75% 50%; } /* keeps the library tower in a narrow frame */
-  .tile--big h3 { padding: var(--space-lg); font-size: var(--text-2xl); }
 }
 @media (max-width: 40rem) {
-  .tile h3, .tile--big h3 { padding: var(--space-md); font-size: var(--text-xl); }
+  .tile h3 { padding: var(--space-md); }
 }
 
 /* research and projects: one row per topic, the name on the left, what it is on the right */
@@ -376,6 +373,8 @@ html:not(.js) .page + .page { border-top: var(--rule-hair) solid var(--color-ink
 .event__photo { grid-column: 1 / span 5; display: block; border-radius: var(--radius-card); }
 .event + .event { padding-top: calc(var(--section-gap) + var(--space-2xl)); } /* one event to a screen */
 .event__photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-card); }
+.event__photo--4x3 img { aspect-ratio: 4 / 3; } /* a group in two rows needs the taller frame */
+@media (min-width: 60.0625rem) { .event--pair { row-gap: var(--gap-columns); } .event--pair .event__body { grid-row: 1 / span 2; } } /* two photographs stacked beside the text */
 .event__poster img { width: 100%; height: auto; border-radius: var(--radius-card); outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 10%, transparent); outline-offset: -1px; }
 .event h2:not(.opening-title) { max-width: 22em; font-size: var(--text-section); line-height: 1.1; }
 .event__body { grid-column: 6 / -1; display: grid; gap: var(--space-xl); align-content: start; }
@@ -554,7 +553,6 @@ const MEDIA = {
   wordmark: { src: 'media/img/logo/starbeams-wordmark-966.webp', srcset: 'media/img/logo/starbeams-wordmark-560.webp 560w, media/img/logo/starbeams-wordmark-966.webp 966w' },
   homeActivity: { src: 'media/img/activities/drs-poster-top-960.webp', srcset: 'media/img/activities/drs-poster-top-960.webp 960w, media/img/activities/drs-poster-top-1600.webp 1600w' },
   iitkLogo: { src: 'media/img/logo/iitk-logo-white-80.webp', srcset: 'media/img/logo/iitk-logo-white-80.webp 510w, media/img/logo/iitk-logo-white-160.webp 1019w' },
-  libraryNight: { src: 'media/img/campus/library-night-960.webp', srcset: 'media/img/campus/library-night-960.webp 960w, media/img/campus/library-night-1920.webp 1920w' },
   campusLawn: { src: 'media/img/campus/iitk-lawn-1320.webp', srcset: 'media/img/campus/iitk-lawn-960.webp 960w, media/img/campus/iitk-lawn-1320.webp 1320w' },
   swanStation: { src: 'media/img/campus/swan-station-440.webp' },
   iitkGate: { src: 'media/img/campus/iitk-gate-735.webp', srcset: 'media/img/campus/iitk-gate-480.webp 480w, media/img/campus/iitk-gate-735.webp 735w' },
@@ -571,6 +569,9 @@ const MEDIA = {
   bricsCard: { src: 'media/img/activities/brics-card-960.webp', srcset: 'media/img/activities/brics-card-960.webp 960w, media/img/activities/brics-card-1600.webp 1600w' },
   colloquiumPosterThumb: { src: 'media/img/activities/colloquium-poster-600.webp', srcset: 'media/img/activities/colloquium-poster-600.webp 600w, media/img/activities/colloquium-poster-1200.webp 1200w' },
   colloquiumPoster: { full: 'media/img/activities/colloquium-poster-1697.webp' },
+  lorimerGroup: { src: 'media/img/activities/lorimer-group-800.webp', srcset: 'media/img/activities/lorimer-group-800.webp 800w, media/img/activities/lorimer-group-1200.webp 1200w', full: 'media/img/activities/lorimer-group-full.webp' },
+  lorimerTalk: { src: 'media/img/activities/lorimer-talk-800.webp', srcset: 'media/img/activities/lorimer-talk-800.webp 800w, media/img/activities/lorimer-talk-1280.webp 1280w', full: 'media/img/activities/lorimer-talk-full.webp' },
+  gauravParty: { src: 'media/img/activities/gaurav-party-800.webp', srcset: 'media/img/activities/gaurav-party-800.webp 800w, media/img/activities/gaurav-party-1280.webp 1280w', full: 'media/img/activities/gaurav-party-full.webp' },
   conferenceLogo: { src: 'media/img/activities/drs-logo-732.webp', srcset: 'media/img/activities/drs-logo-360.webp 360w, media/img/activities/drs-logo-732.webp 732w' },
   poster: { full: 'media/img/activities/drs-poster-1843.webp' },
   galleryParticipants: { src: 'media/img/photos/drs-participants-1600.webp', srcset: 'media/img/photos/drs-participants-960.webp 960w, media/img/photos/drs-participants-1600.webp 1600w, media/img/photos/drs-participants-2400.webp 2400w', full: 'media/img/photos/drs-participants-2400.webp' },
@@ -585,6 +586,7 @@ const MEDIA = {
   personKhare: 'media/img/people/sagar-khare.webp',
   personKharat: 'media/img/people/ashwin-raju-kharat.webp',
   personAlam: 'media/img/people/mohd-intakhab-alam.webp',
+  personGaurav: 'media/img/people/gaurav-kumar.webp',
   garudaImage: null
 };
 
@@ -1024,13 +1026,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <h2 id="iitk-h">Campus and facilities</h2>
       </div>
       <ul class="tiles">
-        <li class="tile tile--big">
-          <img data-media="campusLawn" src="media/img/campus/iitk-lawn-1320.webp" srcset="media/img/campus/iitk-lawn-960.webp 960w, media/img/campus/iitk-lawn-1320.webp 1320w" sizes="(min-width: 90rem) 82rem, 100vw" width="1320" height="480" loading="lazy" decoding="async" alt="The central lawn at IIT Kanpur, with the brick tower of the P K Kelkar Library behind the trees">
-          <h3><a href="https://www.iitk.ac.in/faculty-staff-campus-life">Life at IIT Kanpur</a></h3>
-        </li>
         <li class="tile">
-          <img data-media="libraryNight" src="media/img/campus/library-night-960.webp" srcset="media/img/campus/library-night-960.webp 960w, media/img/campus/library-night-1920.webp 1920w" sizes="(min-width: 90rem) 26rem, (min-width: 60rem) 30vw, 100vw" width="1920" height="710" loading="lazy" decoding="async" alt="The P K Kelkar Library at night, lit from within">
-          <h3><a href="https://pkklib.iitk.ac.in/">P K Kelkar Library</a></h3>
+          <img data-media="campusLawn" src="media/img/campus/iitk-lawn-1320.webp" srcset="media/img/campus/iitk-lawn-960.webp 960w, media/img/campus/iitk-lawn-1320.webp 1320w" sizes="(min-width: 90rem) 26rem, (min-width: 60rem) 30vw, 100vw" width="1320" height="480" loading="lazy" decoding="async" alt="The central lawn at IIT Kanpur, with a brick tower behind the trees">
+          <h3><a href="https://www.iitk.ac.in/faculty-staff-campus-life">Life at IIT Kanpur</a></h3>
         </li>
         <li class="tile">
           <img data-media="researchFacilities" src="media/img/campus/param-sanganak-864.webp" srcset="media/img/campus/param-sanganak-480.webp 480w, media/img/campus/param-sanganak-864.webp 864w" sizes="(min-width: 90rem) 26rem, (min-width: 60rem) 30vw, 100vw" width="864" height="582" loading="lazy" decoding="async" alt="The PARAM Sanganak supercomputer at IIT Kanpur">
@@ -1177,6 +1175,25 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </li>
         <!-- To add a member: copy one <li class="member"> above, add a portrait key to MEDIA, and cite the official listing. -->
+      </ul>
+    </section>
+
+    <section class="block--l" aria-labelledby="alumni-h">
+      <div class="block-head">
+        <h2 id="alumni-h">Alumni</h2>
+      </div>
+      <ul class="members">
+        <li class="member">
+          <div class="portrait" data-slot="person-gaurav" data-alt="Portrait of Gaurav Kumar">
+            <img data-media="personGaurav" src="media/img/people/gaurav-kumar.webp" width="150" height="160" loading="lazy" decoding="async" alt="Portrait of Gaurav Kumar">
+            <span class="portrait__initials" aria-hidden="true">GK</span>
+          </div>
+          <div class="member__body">
+            <h3>Gaurav Kumar</h3>
+            <p>M.Tech, 2026, on the energy function of fast radio bursts</p>
+            <p><a class="more" href="https://iitk.ac.in/space/m-tech-students" aria-label="Gaurav Kumar on the SPASE M.Tech students page">SPASE listing</a></p>
+          </div>
+        </li>
       </ul>
     </section>
 
@@ -1355,6 +1372,35 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </section>
 
+    <section class="event block--l" id="gaurav-defence-2026" aria-labelledby="gaurav-h">
+      <a class="event__photo event__photo--4x3" href="media/img/activities/gaurav-party-full.webp" data-viewer data-media-href="gauravParty" data-alt="The group at the party after Gaurav Kumar's M.Tech thesis defence"><img data-media="gauravParty" src="media/img/activities/gaurav-party-800.webp" srcset="media/img/activities/gaurav-party-800.webp 800w, media/img/activities/gaurav-party-1280.webp 1280w" sizes="(min-width: 60rem) 38vw, 100vw" width="1280" height="960" loading="lazy" decoding="async" alt="Ten members of the group, six standing and four kneeling, in front of a café's neon sign at the party after the defence"></a>
+      <div class="event__body">
+        <p class="label"><time datetime="2026-05-29">29 May 2026</time></p>
+        <h2 id="gaurav-h">Gaurav Kumar defends his M.Tech thesis</h2>
+        <p>Now an alumnus, Gaurav defended his thesis on the faintest fast radio bursts, and the group celebrated afterwards.</p>
+        <dl class="facts">
+          <div><dt>Thesis</dt><dd>Bayesian Constraints on the Faint-End Slope of the Fast Radio Burst Energy Function from CHIME/FRB Catalog-1 and Local Volume Galaxies</dd></div>
+          <div><dt>Time</dt><dd>Friday, 11:00 AM</dd></div>
+          <div><dt>Venue</dt><dd>SPASE Seminar Hall, ESB-2, Room 715</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="event event--pair block--l" id="lorimer-2026" aria-labelledby="lorimer-h">
+      <a class="event__photo" href="media/img/activities/lorimer-group-full.webp" data-viewer data-media-href="lorimerGroup" data-alt="Prof. Duncan Lorimer with members of the group on the IIT Kanpur campus"><img data-media="lorimerGroup" src="media/img/activities/lorimer-group-800.webp" srcset="media/img/activities/lorimer-group-800.webp 800w, media/img/activities/lorimer-group-1200.webp 1200w" sizes="(min-width: 60rem) 38vw, 100vw" width="1200" height="800" loading="lazy" decoding="async" alt="Prof. Duncan Lorimer standing with members of the group outside a campus canteen"></a>
+      <a class="event__photo" href="media/img/activities/lorimer-talk-full.webp" data-viewer data-media-href="lorimerTalk" data-alt="Prof. Duncan Lorimer with students and faculty after his talk at IIT Kanpur"><img data-media="lorimerTalk" src="media/img/activities/lorimer-talk-800.webp" srcset="media/img/activities/lorimer-talk-800.webp 800w, media/img/activities/lorimer-talk-1280.webp 1280w" sizes="(min-width: 60rem) 38vw, 100vw" width="1280" height="853" loading="lazy" decoding="async" alt="Prof. Duncan Lorimer with students and faculty in a lecture hall after his talk, its title slide on the screen behind them"></a>
+      <div class="event__body">
+        <p class="label"><time datetime="2026-02-02">2 to 4 February 2026</time></p>
+        <h2 id="lorimer-h">A visit by Prof. Duncan Lorimer</h2>
+        <p>The discoverer of fast radio bursts, from West Virginia University, gave a talk and met the group.</p>
+        <dl class="facts">
+          <div><dt>Talk</dt><dd>Rolling the Dice: Monte Carlo Simulations of Pulsars and Fast Radio Bursts</dd></div>
+          <div><dt>With the group</dt><dd>Monday, 4:00 PM, at the DOAA canteen</dd></div>
+          <div><dt>With students</dt><dd>Tuesday, 11:00 AM, in FB-382</dd></div>
+        </dl>
+      </div>
+    </section>
+
     <section class="event block--l" id="colloquium-2026" aria-labelledby="talk-h">
       <a class="event__poster" href="media/img/activities/colloquium-poster-1697.webp" data-viewer data-media-href="colloquiumPoster" data-alt="Poster for the Physics Colloquium on fast radio bursts by Prof. Mohit Bhardwaj"><img data-media="colloquiumPosterThumb" src="media/img/activities/colloquium-poster-600.webp" srcset="media/img/activities/colloquium-poster-600.webp 600w, media/img/activities/colloquium-poster-1200.webp 1200w" sizes="(min-width: 60rem) 24rem, 16rem" width="1200" height="1697" loading="lazy" decoding="async" alt="Poster for the Physics Colloquium on fast radio bursts by Prof. Mohit Bhardwaj, with its abstract, speaker and venue"></a>
       <div class="event__body">
@@ -1376,7 +1422,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><a class="more" href="https://iitk.ac.in/space/seminar">All SPASE seminars</a></p>
       </div>
       <ol class="timeline timeline--talks">
-        <li><time datetime="2026-02-03">3 and 4 February 2026</time><h3>A visit by Prof. Duncan Lorimer</h3><p>Of West Virginia University, who discovered fast radio bursts in 2007.</p></li>
         <li><time datetime="2026-01-12">12 January 2026</time><h3>Lazuli Space Observatory and Schmidt Sciences initiatives</h3><p>The SPASE Journal Club, led by Prof. Bhardwaj.</p></li>
         <li><time datetime="2025-12-05">5 December 2025</time><h3>Probing Fast Radio Bursts Using Deep Learning and GMRT</h3><p>Dr. Ajay Kumar, TIFR-NCRA.</p></li>
         <li><time datetime="2025-12-02">2 December 2025</time><h3>Locating the Universe’s Fastest Flashes: Advances in FRB Detection and Astrometry using ASKAP</h3><p>Akhil Jaini, Swinburne University of Technology.</p></li>
@@ -1416,6 +1461,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <li><time datetime="2026-11-05">5 November 2026</time><h3>Buti Foundation Award 2026</h3><p><a href="#buti-award-2026">From the Indian Physics Association</a>, for contributions to astrophysics.</p></li>
         <li><time datetime="2026-10-27">27 October 2026</time><h3>Talk at the BRICS Astronomy Working Group meeting</h3><p><a href="#brics-2026">On a real-time framework for fast radio bursts</a>, at IUCAA, Pune.</p></li>
         <li><time datetime="2026-10">October 2026</time><h3>The Dynamic Radio Sky at IIT Kanpur</h3><p>ASI Symposium 008, organised by SPASE.</p></li>
+        <li><time datetime="2026-05-29">29 May 2026</time><h3>An M.Tech thesis defended</h3><p><a href="#gaurav-defence-2026">By Gaurav Kumar</a>, on the faintest fast radio bursts.</p></li>
+        <li><time datetime="2026-02">February 2026</time><h3>A visit by Prof. Duncan Lorimer</h3><p><a href="#lorimer-2026">Three days at IIT Kanpur</a> with the discoverer of fast radio bursts.</p></li>
         <li><time datetime="2026">2026</time><h3>Two papers in The Astrophysical Journal</h3><p>On a new <a href="https://doi.org/10.3847/1538-4357/ae8847">CHIME backend</a> and <a href="https://doi.org/10.3847/1538-4357/ae96a6">a repeating source’s surroundings</a>.</p></li>
         <li><time datetime="2026-01-09">9 January 2026</time><h3>Physics Colloquium at IIT Kanpur</h3><p><a href="#colloquium-2026">On fast radio bursts</a>, at the Department of Physics.</p></li>
         <li><time datetime="2026-01">January 2026</time><h3>The Second CHIME/FRB Catalog</h3><p><a href="https://arxiv.org/abs/2601.09399">On arXiv</a>, with STARBEAMS among the authors.</p></li>
@@ -1538,7 +1585,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <li><a href="https://www.iitk.ac.in/">The institute</a></li>
           <li><a href="https://iitk.ac.in/space/">SPASE</a></li>
           <li><a href="https://iitk.ac.in/space/radio-astronomy-laboratory">Radio astronomy laboratory</a></li>
-          <li><a href="https://pkklib.iitk.ac.in/">P K Kelkar Library</a></li>
           <li><a href="https://www.iitk.ac.in/facilities">Research facilities</a></li>
           <li><a href="https://iitk.ac.in/visitors">Visiting the campus</a></li>
         </ul>
